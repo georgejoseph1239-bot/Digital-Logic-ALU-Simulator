@@ -1,0 +1,536 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Navigation */
+
+.navbar {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    background: rgba(8, 8, 8, 0.95);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ff3b30;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #ff3b30;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 90vh;
+    padding: 100px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.tag {
+    color: #ff3b30;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 6vw, 80px);
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #ff3b30;
+}
+
+.description {
+    color: #aaaaaa;
+    font-size: 18px;
+    max-width: 620px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: #ff3b30;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #ff554b;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    border: 1px solid #444;
+    color: white;
+}
+
+.btn.secondary:hover {
+    border-color: #ff3b30;
+    color: #ff3b30;
+}
+
+
+/* Chip Visual */
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chip {
+    width: 280px;
+    height: 280px;
+    border: 2px solid #333;
+    border-radius: 20px;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 59, 48, 0.12);
+}
+
+.chip-title {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.chip-center {
+    font-size: 55px;
+    font-weight: bold;
+    color: #ff3b30;
+}
+
+.chip-label {
+    margin-top: 10px;
+    color: #888;
+    letter-spacing: 3px;
+}
+
+.chip-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.chip-lines div {
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: #444;
+    left: -25px;
+}
+
+.chip-lines div:nth-child(1) {
+    top: 25%;
+}
+
+.chip-lines div:nth-child(2) {
+    top: 40%;
+}
+
+.chip-lines div:nth-child(3) {
+    top: 60%;
+}
+
+.chip-lines div:nth-child(4) {
+    top: 75%;
+}
+
+
+/* Simulator */
+
+.simulator-section {
+    padding: 100px 7%;
+    border-top: 1px solid #222;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.section-heading p:not(.tag) {
+    color: #999;
+}
+
+
+/* Module Cards */
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.module-card {
+    background: #101010;
+    border: 1px solid #252525;
+    padding: 30px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff3b30;
+}
+
+.module-card.featured {
+    border-color: #ff3b30;
+}
+
+.module-number {
+    color: #ff3b30;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.module-card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.module-card p {
+    color: #999;
+    margin-bottom: 25px;
+}
+
+.module-card button {
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.module-card button:hover {
+    background: #ff3b30;
+    border-color: #ff3b30;
+}
+
+
+/* About */
+
+.about-section {
+    padding: 100px 7%;
+    border-top: 1px solid #222;
+}
+
+.about-section .section-heading {
+    max-width: 800px;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 30px 7%;
+    border-top: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .module-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 18px 5%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 80px 5%;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* ================================
+   LOGIC GATE SIMULATOR
+================================ */
+
+.gate-panel {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 40px;
+    background: #101010;
+    border: 1px solid #252525;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.input-group,
+.gate-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group label,
+.gate-selector label {
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.input-group button {
+    width: 100%;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    background: #080808;
+    color: #ff3b30;
+    border: 1px solid #444;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-group button:hover {
+    border-color: #ff3b30;
+    transform: translateY(-2px);
+}
+
+.gate-selector {
+    grid-column: 1 / -1;
+}
+
+.gate-selector select {
+    padding: 15px;
+    background: #080808;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gate-selector select:focus {
+    outline: none;
+    border-color: #ff3b30;
+}
+
+.output-box {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ff3b30;
+    border-radius: 10px;
+    background: #0b0b0b;
+}
+
+.output-label {
+    color: #999;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+#gateOutput {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ff3b30;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .gate-panel {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .gate-selector {
+        grid-column: auto;
+    }
+
+    .output-box {
+        grid-column: auto;
+    }
+}
+/* ================================
+   ALU INPUTS
+================================ */
+
+.alu-panel input {
+    width: 100%;
+    padding: 18px;
+    background: #080808;
+    color: #ff3b30;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 24px;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.alu-panel input:focus {
+    outline: none;
+    border-color: #ff3b30;
+}
+
+.simulate-button,
+.reset-button {
+    padding: 14px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.simulate-button {
+    background: #ff3b30;
+    color: white;
+    border: 1px solid #ff3b30;
+}
+
+.simulate-button:hover {
+    transform: translateY(-2px);
+}
+
+.reset-button {
+    background: transparent;
+    color: white;
+    border: 1px solid #444;
+}
+
+.reset-button:hover {
+    border-color: #ff3b30;
+    color: #ff3b30;
+}
+
+#aluMessage {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
