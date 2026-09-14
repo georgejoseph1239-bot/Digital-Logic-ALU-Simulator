@@ -1,0 +1,9 @@
+# Compiled executable
+simulator.exe
+
+# VS Code settings
+.vscode/
+
+# Temporary files
+*.tmp
+*.log
