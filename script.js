@@ -701,16 +701,13 @@ function openClockSimulator() {
         K: 0
     };
 
-
     moduleArea.innerHTML = `
 
         <div class="section-heading">
 
             <p class="tag">SEQUENTIAL LOGIC</p>
 
-            <h2>
-                JK Flip-Flop Clock Simulator
-            </h2>
+            <h2>JK Flip-Flop Clock Simulator</h2>
 
             <p>
                 Apply clock pulses and observe
@@ -719,224 +716,86 @@ function openClockSimulator() {
 
         </div>
 
-
         <div class="gate-panel">
 
-
             <div class="input-group">
-
                 <label>J</label>
-
-                <button id="clockJ"
-                        onclick="toggleClockInput('J')">
-
-                    0
-
-                </button>
-
+                <button id="clockJ" onclick="toggleClockInput('J')">0</button>
             </div>
-
 
             <div class="input-group">
-
                 <label>K</label>
-
-                <button id="clockK"
-                        onclick="toggleClockInput('K')">
-
-                    0
-
-                </button>
-
+                <button id="clockK" onclick="toggleClockInput('K')">0</button>
             </div>
 
-
-            <button class="simulate-button"
-                    onclick="applyClock()">
-
+            <button class="simulate-button" onclick="applyClock()">
                 APPLY CLOCK
-
             </button>
 
-
-            <button class="reset-button"
-                    onclick="resetClock()">
-
+            <button class="reset-button" onclick="resetClock()">
                 RESET
-
             </button>
-
 
             <div class="output-box">
-
-                <div class="output-label">
-                    CURRENT STATE
-                </div>
-
-                <div id="clockOutput">
-                    Q = 0
-                </div>
-
+                <div class="output-label">CURRENT STATE</div>
+                <div id="clockOutput">Q = 0</div>
             </div>
 
+            <div id="clockTableContainer">
 
-            <!-- STATE TABLE -->
+                <h3 class="state-title">JK STATE TRANSITIONS</h3>
 
-            <div id="clockTableContainer"
-     style="grid-column: 1 / -1; width: 100%; margin-top: 25px;">
+                <table class="truth-table">
+                    <thead>
+                        <tr>
+                            <th>CLOCK</th>
+                            <th>J</th>
+                            <th>K</th>
+                            <th>PRESENT Q</th>
+                            <th>NEXT Q</th>
+                        </tr>
+                    </thead>
 
-    <h3 style="
-        color: #ffffff;
-        margin-bottom: 18px;
-        font-size: 20px;
-    ">
-        JK STATE TRANSITIONS
-    </h3>
-
-    <table style="
-        width: 100%;
-        border-collapse: collapse;
-        background: #080808;
-        table-layout: fixed;
-    ">
-
-        <tr>
-
-            <th style="
-                padding: 16px;
-                border: 1px solid #444;
-                background: #151515;
-                color: #ff3b30;
-                text-align: center;
-            ">
-                CLOCK
-            </th>
-
-            <th style="
-                padding: 16px;
-                border: 1px solid #444;
-                background: #151515;
-                color: #ff3b30;
-                text-align: center;
-            ">
-                J
-            </th>
-
-            <th style="
-                padding: 16px;
-                border: 1px solid #444;
-                background: #151515;
-                color: #ff3b30;
-                text-align: center;
-            ">
-                K
-            </th>
-
-            <th style="
-                padding: 16px;
-                border: 1px solid #444;
-                background: #151515;
-                color: #ff3b30;
-                text-align: center;
-            ">
-                PRESENT Q
-            </th>
-
-            <th style="
-                padding: 16px;
-                border: 1px solid #444;
-                background: #151515;
-                color: #ff3b30;
-                text-align: center;
-            ">
-                NEXT Q
-            </th>
-
-        </tr>
-
-    </table>
-
-</div>
-
-                    <tr>
-
-                        <th>CLOCK</th>
-                        <th>J</th>
-                        <th>K</th>
-                        <th>PRESENT Q</th>
-                        <th>NEXT Q</th>
-
-                    </tr>
-
+                    <tbody id="clockTableBody"></tbody>
                 </table>
 
             </div>
 
-
-            <!-- STATE DIAGRAM -->
-
             <div id="stateDiagramContainer">
 
-                <h3 class="state-title">
-                    JK STATE DIAGRAM
-                </h3>
-
+                <h3 class="state-title">JK STATE DIAGRAM</h3>
 
                 <div class="state-diagram">
 
                     <div class="state-node state-zero">
-
-                        <div class="state-circle">
-                            Q = 0
-                        </div>
-
+                        <div class="state-circle">Q = 0</div>
                     </div>
-
-
-                    <div class="state-arrow arrow-top">
-                        <span>
-                            J=1, K=0
-                        </span>
-                    </div>
-
-
-                    <div class="state-arrow arrow-bottom">
-                        <span>
-                            J=0, K=1
-                        </span>
-                    </div>
-
-
-                    <div class="state-loop loop-zero">
-                        <span>
-                            J=0, K=0
-                        </span>
-                    </div>
-
 
                     <div class="state-node state-one">
-
-                        <div class="state-circle">
-                            Q = 1
-                        </div>
-
+                        <div class="state-circle">Q = 1</div>
                     </div>
 
+                    <div class="state-arrow arrow-top">
+                        <span>J=1, K=X</span>
+                    </div>
+
+                    <div class="state-arrow arrow-bottom">
+                        <span>J=X, K=1</span>
+                    </div>
+
+                    <div class="state-loop loop-zero">
+                        <span>J=0, K=X</span>
+                    </div>
 
                     <div class="state-loop loop-one">
-                        <span>
-                            J=0, K=0
-                        </span>
+                        <span>J=X, K=0</span>
                     </div>
 
                 </div>
 
-
                 <p class="diagram-note">
-
-                    J=1, K=1 toggles the state:
-                    0 → 1 → 0
-
+                    J = 1, K = 1 toggles the state:
+                    Q = 0 → 1 and Q = 1 → 0
                 </p>
 
             </div>
@@ -963,93 +822,58 @@ function applyClock() {
     const J = clockInputs.J;
     const K = clockInputs.K;
 
-
-    // Present state BEFORE clock pulse
-
     const presentQ = clockQ;
 
-
-    // JK next-state logic
-
     if (J === 0 && K === 0) {
-
         // HOLD
     }
-
     else if (J === 0 && K === 1) {
-
         clockQ = 0;
     }
-
     else if (J === 1 && K === 0) {
-
         clockQ = 1;
     }
-
     else {
-
-        // TOGGLE
-
-        clockQ =
-            clockQ === 0 ? 1 : 0;
+        clockQ = clockQ === 0 ? 1 : 0;
     }
-
-
-    // State AFTER clock pulse
 
     const nextQ = clockQ;
 
     clockCycle++;
 
-
-    document.getElementById(
-        "clockOutput"
-    ).textContent =
+    document.getElementById("clockOutput").textContent =
         "Q = " + nextQ;
 
+    const tableBody =
+        document.getElementById("clockTableBody");
 
-    // Add state transition to table
+    if (!tableBody) {
+        return;
+    }
 
-    const table =
-        document.querySelector(
-            "#clockTableContainer table"
-        );
+    const row = tableBody.insertRow(-1);
 
+    row.insertCell(0).textContent = clockCycle;
+    row.insertCell(1).textContent = J;
+    row.insertCell(2).textContent = K;
+    row.insertCell(3).textContent = presentQ;
+    row.insertCell(4).textContent = nextQ;
 
-    const row =
-        table.insertRow(-1);
-        row.style.textAlign = "center";
+    row.style.textAlign = "center";
 
-for (let i = 0; i < 5; i++) {
-    row.cells[i].style.padding = "16px";
-    row.cells[i].style.border = "1px solid #333";
-    row.cells[i].style.color = "#ffffff";
-    row.cells[i].style.fontFamily = "monospace";
-    row.cells[i].style.fontSize = "17px";
-}
-
-
-    row.insertCell(0).textContent =
-        clockCycle;
-
-    row.insertCell(1).textContent =
-        J;
-
-    row.insertCell(2).textContent =
-        K;
-
-    row.insertCell(3).textContent =
-        presentQ;
-
-    row.insertCell(4).textContent =
-        nextQ;
+    for (let i = 0; i < 5; i++) {
+        row.cells[i].style.padding = "16px";
+        row.cells[i].style.border = "1px solid #333";
+        row.cells[i].style.color = "#ffffff";
+        row.cells[i].style.fontFamily = "monospace";
+        row.cells[i].style.fontSize = "17px";
+    }
 }
 
 
 function resetClock() {
 
     clockQ = 0;
-
     clockCycle = 0;
 
     clockInputs = {
@@ -1057,37 +881,34 @@ function resetClock() {
         K: 0
     };
 
+    const clockOutput =
+        document.getElementById("clockOutput");
 
-    document.getElementById(
-        "clockOutput"
-    ).textContent =
-        "Q = 0";
+    if (clockOutput) {
+        clockOutput.textContent = "Q = 0";
+    }
 
+    const clockJ =
+        document.getElementById("clockJ");
 
-    document.getElementById(
-        "clockJ"
-    ).textContent =
-        "0";
+    const clockK =
+        document.getElementById("clockK");
 
+    if (clockJ) {
+        clockJ.textContent = "0";
+    }
 
-    document.getElementById(
-        "clockK"
-    ).textContent =
-        "0";
+    if (clockK) {
+        clockK.textContent = "0";
+    }
 
+    const tableBody =
+        document.getElementById("clockTableBody");
 
-    const table =
-        document.querySelector(
-            "#clockTableContainer table"
-        );
-
-
-    while (table.rows.length > 1) {
-
-        table.deleteRow(1);
+    if (tableBody) {
+        tableBody.innerHTML = "";
     }
 }
-
 
 // ========================================
 // 4-BIT BINARY COUNTER
@@ -1229,25 +1050,22 @@ function applyCounterClock() {
 function resetCounter() {
 
     counterValue = 0;
-
     counterCycle = 0;
 
+    const counterOutput =
+        document.getElementById("counterOutput");
 
-    document.getElementById(
-        "counterOutput"
-    ).textContent =
-        "0000";
-
+    if (counterOutput) {
+        counterOutput.textContent = "0000";
+    }
 
     const table =
-        document.querySelector(
-            "#counterTableContainer table"
-        );
+        document.querySelector("#counterTableContainer table");
 
-
-    while (table.rows.length > 1) {
-
-        table.deleteRow(1);
+    if (table) {
+        while (table.rows.length > 1) {
+            table.deleteRow(1);
+        }
     }
 }
 
