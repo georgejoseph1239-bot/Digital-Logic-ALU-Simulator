@@ -618,3 +618,212 @@ footer {
 #clockTableContainer tr:hover td {
     background: #151515;
 }
+
+/* ========================================
+   JK STATE DIAGRAM
+======================================== */
+
+#stateDiagramContainer {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+.state-title {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.state-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    height: 330px;
+    margin: 0 auto;
+    background: #080808;
+    border: 1px solid #252525;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.state-node {
+    position: absolute;
+    top: 105px;
+    z-index: 3;
+}
+
+.state-zero {
+    left: 18%;
+}
+
+.state-one {
+    right: 18%;
+}
+
+.state-circle {
+    width: 105px;
+    height: 105px;
+    border: 3px solid #ff3b30;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101010;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(255, 59, 48, 0.12);
+}
+
+/* Arrows between Q=0 and Q=1 */
+
+.state-arrow {
+    position: absolute;
+    left: 32%;
+    width: 36%;
+    height: 3px;
+    background: #ff3b30;
+    z-index: 1;
+}
+
+.state-arrow::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -6px;
+    border-left: 12px solid #ff3b30;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.arrow-top {
+    top: 125px;
+}
+
+.arrow-bottom {
+    top: 190px;
+    transform: rotate(180deg);
+}
+
+.state-arrow span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px;
+    background: #080808;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.arrow-top span {
+    top: -28px;
+}
+
+.arrow-bottom span {
+    top: 8px;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+/* Hold loops */
+
+.state-loop {
+    position: absolute;
+    width: 145px;
+    height: 75px;
+    border: 2px solid #555;
+    border-bottom: none;
+    border-radius: 80px 80px 0 0;
+    z-index: 1;
+}
+
+.loop-zero {
+    left: 9%;
+    top: 30px;
+}
+
+.loop-one {
+    right: 9%;
+    top: 30px;
+}
+
+.state-loop::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    width: 0;
+    height: 0;
+    border-top: 9px solid #555;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+.loop-zero::after {
+    right: 0;
+}
+
+.loop-one::after {
+    right: 0;
+}
+
+.state-loop span {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #aaaaaa;
+    font-family: monospace;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.diagram-note {
+    max-width: 750px;
+    margin: 18px auto 0;
+    padding: 14px 18px;
+    border-left: 3px solid #ff3b30;
+    background: #101010;
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+/* Mobile state diagram */
+
+@media (max-width: 600px) {
+
+    .state-diagram {
+        height: 390px;
+    }
+
+    .state-zero {
+        left: 8%;
+    }
+
+    .state-one {
+        right: 8%;
+    }
+
+    .state-circle {
+        width: 85px;
+        height: 85px;
+        font-size: 15px;
+    }
+
+    .state-arrow {
+        left: 25%;
+        width: 50%;
+    }
+
+    .state-loop {
+        width: 115px;
+    }
+
+    .state-loop span,
+    .state-arrow span {
+        font-size: 10px;
+    }
+}
+
