@@ -999,80 +999,14 @@ function openCounter() {
 
                     <tbody id="counterTableBody"></tbody>
 
-                               </table>
+                </table>
 
             </div>
-
-
-            <div id="counterDiagramContainer">
-
-                <h3 class="state-title">
-                    4-BIT COUNTER STATE SEQUENCE
-                </h3>
-
-                <div class="counter-sequence">
-
-                    <span>0000</span>
-                    <span>→</span>
-
-                    <span>0001</span>
-                    <span>→</span>
-
-                    <span>0010</span>
-                    <span>→</span>
-
-                    <span>0011</span>
-                    <span>→</span>
-
-                    <span>0100</span>
-                    <span>→</span>
-
-                    <span>0101</span>
-                    <span>→</span>
-
-                    <span>0110</span>
-                    <span>→</span>
-
-                    <span>0111</span>
-                    <span>→</span>
-
-                    <span>1000</span>
-                    <span>→</span>
-
-                    <span>1001</span>
-                    <span>→</span>
-
-                    <span>1010</span>
-                    <span>→</span>
-
-                    <span>1011</span>
-                    <span>→</span>
-
-                    <span>1100</span>
-                    <span>→</span>
-
-                    <span>1101</span>
-                    <span>→</span>
-
-                    <span>1110</span>
-                    <span>→</span>
-
-                    <span>1111</span>
-                    <span>→</span>
-
-                    <span>0000</span>
-
-                </div>
-
-                <p class="diagram-note">
-                    The counter cycles through 16 states
-                    from 0000 to 1111 and then returns to 0000.
-                </p>
-
-            </div>
-
 
         </div>
+    `;
+}
+
 
 function applyCounterClock() {
 
