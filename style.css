@@ -534,3 +534,87 @@ footer {
     color: #999;
     font-size: 14px;
 }
+/* ========================================
+   STATE / TRUTH TABLE
+======================================== */
+
+#clockTableContainer,
+#counterTableContainer,
+#truthTableContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.truth-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+    background: #080808;
+    border: 1px solid #333;
+}
+
+.truth-table th {
+    padding: 15px 18px;
+    color: #ff3b30;
+    background: #151515;
+    border: 1px solid #333;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.truth-table td {
+    padding: 14px 18px;
+    color: #ffffff;
+    border: 1px solid #292929;
+    text-align: center;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.truth-table tr:hover td {
+    background: #151515;
+}
+
+#clockTableContainer .truth-table {
+    min-width: 600px;
+}/* ========================================
+   STRONG TABLE FIX
+======================================== */
+
+#clockTableContainer {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 25px;
+    overflow-x: auto;
+}
+
+#clockTableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#clockTableContainer th {
+    padding: 16px;
+    background: #151515;
+    color: #ff3b30;
+    border: 1px solid #444;
+    text-align: center;
+    font-weight: bold;
+}
+
+#clockTableContainer td {
+    padding: 16px;
+    background: #080808;
+    color: white;
+    border: 1px solid #333;
+    text-align: center;
+    font-family: monospace;
+    font-size: 17px;
+}
+
+#clockTableContainer tr:hover td {
+    background: #151515;
+}
