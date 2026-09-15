@@ -914,6 +914,10 @@ function resetClock() {
 // 4-BIT BINARY COUNTER
 // ========================================
 
+// ========================================
+// 4-BIT BINARY COUNTER
+// ========================================
+
 let counterValue = 0;
 let counterCycle = 0;
 
@@ -926,7 +930,6 @@ function openCounter() {
     counterValue = 0;
     counterCycle = 0;
 
-
     moduleArea.innerHTML = `
 
         <div class="section-heading">
@@ -936,15 +939,14 @@ function openCounter() {
             <h2>4-Bit Binary Counter</h2>
 
             <p>
-                Apply clock pulses to advance
-                the binary counter.
+                Apply clock pulses to advance the binary counter
+                and observe each state transition.
             </p>
 
         </div>
 
 
         <div class="gate-panel">
-
 
             <div class="output-box">
 
@@ -977,17 +979,25 @@ function openCounter() {
 
             <div id="counterTableContainer">
 
+                <h3 class="state-title">
+                    COUNTER STATE TRANSITIONS
+                </h3>
+
                 <table class="truth-table">
 
-                    <tr>
+                    <thead>
 
-                        <th>CLOCK</th>
-                        <th>Q3</th>
-                        <th>Q2</th>
-                        <th>Q1</th>
-                        <th>Q0</th>
+                        <tr>
 
-                    </tr>
+                            <th>CLOCK</th>
+                            <th>PRESENT COUNT</th>
+                            <th>NEXT COUNT</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="counterTableBody"></tbody>
 
                 </table>
 
@@ -1000,7 +1010,12 @@ function openCounter() {
 
 function applyCounterClock() {
 
-    // 4-bit counter: 0 to 15
+    // Store the present state
+    const presentValue = counterValue;
+
+
+    // Increment the 4-bit counter
+    // 0000 → 0001 → ... → 1111 → 0000
 
     counterValue =
         (counterValue + 1) & 15;
@@ -1008,42 +1023,48 @@ function applyCounterClock() {
     counterCycle++;
 
 
-    const binary =
+    const presentBinary =
+        presentValue
+        .toString(2)
+        .padStart(4, "0");
+
+
+    const nextBinary =
         counterValue
         .toString(2)
         .padStart(4, "0");
 
 
-    document.getElementById(
-        "counterOutput"
-    ).textContent =
-        binary;
+    const output =
+        document.getElementById("counterOutput");
+
+    if (output) {
+
+        output.textContent =
+            nextBinary;
+    }
 
 
-    const table =
-        document.querySelector(
-            "#counterTableContainer table"
-        );
+    const tableBody =
+        document.getElementById("counterTableBody");
+
+    if (!tableBody) {
+        return;
+    }
 
 
     const row =
-        table.insertRow(-1);
+        tableBody.insertRow(-1);
 
 
     row.insertCell(0).textContent =
         counterCycle;
 
     row.insertCell(1).textContent =
-        binary[0];
+        presentBinary;
 
     row.insertCell(2).textContent =
-        binary[1];
-
-    row.insertCell(3).textContent =
-        binary[2];
-
-    row.insertCell(4).textContent =
-        binary[3];
+        nextBinary;
 }
 
 
@@ -1052,22 +1073,28 @@ function resetCounter() {
     counterValue = 0;
     counterCycle = 0;
 
-    const counterOutput =
+
+    const output =
         document.getElementById("counterOutput");
 
-    if (counterOutput) {
-        counterOutput.textContent = "0000";
+    if (output) {
+
+        output.textContent =
+            "0000";
     }
 
-    const table =
-        document.querySelector("#counterTableContainer table");
 
-    if (table) {
-        while (table.rows.length > 1) {
-            table.deleteRow(1);
-        }
+    const tableBody =
+        document.getElementById("counterTableBody");
+
+    if (tableBody) {
+
+        tableBody.innerHTML = "";
     }
 }
+
+
+// ========================================
 
 
 // ========================================
