@@ -98,8 +98,9 @@ function openLogicGates() {
     `;
 
     calculateGate();
+    addBackButton();
 }
-addBackButton();
+
 
 function toggleInput(input) {
 
@@ -213,8 +214,9 @@ function openTruthTables() {
     `;
 
     generateTruthTable();
+    addBackButton();
 }
-addBackButton();
+
 
 
 function generateTruthTable() {
@@ -409,8 +411,9 @@ function openFlipFlops() {
     `;
 
     updateFlipFlop();
+    addBackButton();
 }
-addBackButton();
+
 
 function updateFlipFlop() {
 
@@ -804,6 +807,7 @@ function openClockSimulator() {
 
         </div>
     `;
+    addBackButton();
 }
 
 
