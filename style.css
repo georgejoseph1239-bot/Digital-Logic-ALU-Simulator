@@ -826,4 +826,71 @@ footer {
         font-size: 10px;
     }
 }
+/* ========================================
+   4-BIT COUNTER STATE SEQUENCE
+   ======================================== */
 
+#counterDiagramContainer {
+    margin-top: 35px;
+    padding: 25px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background: #0b0b0b;
+    overflow-x: auto;
+}
+
+.counter-sequence {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    line-height: 2.5;
+    font-family: monospace;
+    font-size: 17px;
+}
+
+.counter-sequence span {
+    white-space: nowrap;
+}
+
+.counter-sequence span:nth-child(odd) {
+    padding: 8px 12px;
+    border: 1px solid #ff3333;
+    border-radius: 6px;
+    background: #111111;
+}
+
+.counter-sequence span:nth-child(even) {
+    color: #ff3333;
+    font-size: 20px;
+}
+
+#counterDiagramContainer .diagram-note {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #counterDiagramContainer {
+        padding: 18px;
+    }
+
+    .counter-sequence {
+        justify-content: flex-start;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .counter-sequence span:nth-child(odd) {
+        padding: 6px 9px;
+    }
+
+    .counter-sequence span:nth-child(even) {
+        font-size: 17px;
+    }
+}
