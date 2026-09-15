@@ -99,7 +99,7 @@ function openLogicGates() {
 
     calculateGate();
 }
-
+addBackButton();
 
 function toggleInput(input) {
 
@@ -214,6 +214,7 @@ function openTruthTables() {
 
     generateTruthTable();
 }
+addBackButton();
 
 
 function generateTruthTable() {
@@ -409,7 +410,7 @@ function openFlipFlops() {
 
     updateFlipFlop();
 }
-
+addBackButton();
 
 function updateFlipFlop() {
 
@@ -459,6 +460,7 @@ function updateFlipFlop() {
 
             </button>
         `;
+        
     }
 
 
@@ -1005,6 +1007,7 @@ function openCounter() {
 
         </div>
     `;
+    addBackButton();
 }
 
 
@@ -1218,6 +1221,7 @@ function openALU() {
 
         </div>
     `;
+    addBackButton();
 }
 
 
@@ -1388,3 +1392,78 @@ document.addEventListener(
 
     }
 );
+// ========================================
+// BACK TO MODULES
+// ========================================
+function addBackButton() {
+
+    const simulator =
+        document.getElementById("simulator");
+
+    const button =
+        document.createElement("button");
+
+    button.className = "back-button";
+    button.textContent = "← BACK TO MODULES";
+
+    button.onclick = backToModules;
+
+    simulator.insertBefore(
+        button,
+        simulator.firstChild
+    );
+}
+function backToModules() {
+
+    document.getElementById("simulator").innerHTML = `
+        <div class="section-heading">
+            <p class="tag">INTERACTIVE SIMULATOR</p>
+
+            <h2>Select a Module</h2>
+
+            <p>
+                Choose a digital logic module to explore.
+            </p>
+        </div>
+
+        <div class="module-grid">
+
+            <div class="module-card">
+                <h3>Logic Gates</h3>
+                <p>Explore basic logic gate operations.</p>
+                <button onclick="openLogicGates()">OPEN MODULE</button>
+            </div>
+
+            <div class="module-card">
+                <h3>Truth Tables</h3>
+                <p>Generate truth tables for logic gates.</p>
+                <button onclick="openTruthTables()">OPEN MODULE</button>
+            </div>
+
+            <div class="module-card">
+                <h3>Flip-Flops</h3>
+                <p>Explore SR, D, JK and T flip-flops.</p>
+                <button onclick="openFlipFlops()">OPEN MODULE</button>
+            </div>
+
+            <div class="module-card">
+                <h3>Clock Simulator</h3>
+                <p>Observe JK flip-flop state transitions.</p>
+                <button onclick="openClockSimulator()">OPEN MODULE</button>
+            </div>
+
+            <div class="module-card">
+                <h3>4-Bit Counter</h3>
+                <p>Explore binary counting and state transitions.</p>
+                <button onclick="openCounter()">OPEN MODULE</button>
+            </div>
+
+            <div class="module-card">
+                <h3>4-Bit ALU</h3>
+                <p>Perform arithmetic and logic operations.</p>
+                <button onclick="openALU()">OPEN MODULE</button>
+            </div>
+
+        </div>
+    `;
+}

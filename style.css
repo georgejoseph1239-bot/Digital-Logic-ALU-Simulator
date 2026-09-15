@@ -894,3 +894,32 @@ footer {
         font-size: 17px;
     }
 }
+/* ========================================
+   BACK TO MODULES BUTTON
+   ======================================== */
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 10px 18px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid #ff3333;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    background: #ff3333;
+    color: #ffffff;
+}
+
